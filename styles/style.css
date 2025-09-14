@@ -1,0 +1,120 @@
+.transition-box{
+    background-color: rgb(191, 231, 9);
+    border-radius: 6px;
+    cursor: pointer;
+    line-height: 100px;
+    height: 200px;
+    text-align: center;
+    transition-property: background-color, border-radius;
+    transition-duration: 2s;
+    transition-timing-function: linear;
+    width: 200px;
+}
+
+.transition-box:hover{
+    background-color: rgb(15, 98, 207);
+    border-radius: 50%;
+}
+
+.transition-button{
+    border: 0;
+    border-radius: 4px;
+    background-color: rgb(253, 161, 22);
+    color: white;
+    cursor: pointer;
+    box-shadow: 0 5px 0 rgb(22, 9, 204);
+    margin: 0;
+    outline: 0;
+    padding: 12px 20px;
+    transition: all 0.2s linear;
+}
+
+.transition-button:active{
+    box-shadow: 0 5px 0 rgb(85, 6, 231);
+    transform: translateY(3px);
+}
+
+.card-container{
+    height: 250px;
+    perspective: 600;
+    width: 250px;
+    position: relative;
+    cursor: pointer;
+}
+
+.card{
+    height: 100%;
+    position: absolute;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+    width: 100%;
+}
+
+.card-container:hover .card{
+    transform: rotateY(180deg);
+}
+
+.card .front{
+    backface-visibility: hidden;
+    border-radius: 6px;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    overflow: hidden;
+}
+
+.card .back{
+    background-color: rgb(223, 155, 30);
+    color: rgb(134, 22, 240);
+    line-height: 150px;
+    text-align: center;
+    transform: rotateY(180deg);
+}
+
+img{
+    width: 350px;
+    height: auto;
+}
+
+.heart{
+    width:100px;
+    height: 100px;
+    background: rgba(255, 0, 0, 0.877);
+    position: relative;
+    transform: rotate(45deg);
+    animation: heartbeat 1s infinite;
+    margin: 20px 0;
+}
+
+.heart::before,
+.heart::after{
+    content: "";
+    position: absolute;
+    background: red;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+}
+
+.heart::before{ left: -50px; top: 0;}
+.heart::after{ top: -50px; left: 0;}    
+
+@keyframes heartbeat{
+    0%, 100% { transform:scale(1) rotate(90deg); }
+    50% { transform:scale(1.2) rotate(90deg); }
+}
+
+.ball{
+    width: 50px;
+    height: 50px;
+    background: rgb(12, 15, 179);
+    border-radius: 50%;
+    position: relative;
+    animation: move 3s infinite alternate ease-in-out;
+    animation-play-state: paused;
+}
+
+@keyframes  move{
+   from {transform: translateX(0);}
+   to { transform: translateX(900px);}
+}
